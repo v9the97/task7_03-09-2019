@@ -1,0 +1,67 @@
+
+public class Threading_runnable implements Runnable{
+
+private int employeeno, basisalary;
+private String employeename;
+
+
+	public int getEmployeeno() {
+	return employeeno;
+}
+
+public void setEmployeeno(int employeeno) {
+	this.employeeno = employeeno;
+}
+
+public int getBasisalary() {
+	return basisalary;
+}
+
+public void setBasisalary(int basisalary) {
+	this.basisalary = basisalary;
+}
+
+public String getEmployeename() {
+	return employeename;
+}
+
+public void setEmployeename(String employeename) {
+	this.employeename = employeename;
+}
+
+public void run()
+{
+	System.out.println(" hr of employee "+Thread.currentThread().getName()+" "+(basisalary/100));
+	System.out.println(" DA of employee "+Thread.currentThread().getName()+" "+((basisalary*25)/100));
+	System.out.println(" CA of employee "+Thread.currentThread().getName()+" "+(basisalary/100));
+}
+	
+
+	public Threading_runnable(int employeeno,  String employeename,int basisalary) {
+		
+		this.employeeno = employeeno;
+		this.basisalary = basisalary;
+		this.employeename = employeename;
+	}
+
+	public static void main(String[] args) {
+		Thread obj1=new Thread(new Threading_runnable(1,"vinod",200));
+		Thread obj2=new Thread(new Threading_runnable(2,"vijay",200));
+		Thread obj3=new Thread(new Threading_runnable(1,"rahul",200));
+		Thread obj4=new Thread(new Threading_runnable(1,"rishi",200));
+		Thread obj5=new Thread(new Threading_runnable(1,"rathor",200));
+		
+		obj1.setName("AAAAA");
+		obj2.setName("BBBBB");
+		obj3.setName("CCCCC");
+		obj4.setName("DDDDD");
+		obj5.setName("EEEEE");
+		obj1.start();
+		obj2.start();
+		obj3.start();
+		obj4.start();
+		obj5.start();
+		}
+}
+
+
